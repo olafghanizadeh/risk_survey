@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Survey
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Please answer the following questions.
+</p>
+
+
+<table class="table align-middle table-striped ">
+    <thead>
+        <tr>
+            <th>Choices</th>
+            <td>Nada importante</td>
+            <td>Um pouco importante</td>
+            <td>Nem muito nem pouco importante</td>
+            <td>Muito importante</td>
+            <td>Extremamente importante</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+
+    </thead>
+    {{ for field in form }}
+    <tr>
+        <th scope="row">{{ field.label }}</th>
+        {{ for choice in field }}
+        <td>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    {{ endfor }}
+</table>
+
+{% next_button %}
+
+{% endblock %}
